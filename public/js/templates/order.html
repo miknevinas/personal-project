@@ -1,0 +1,85 @@
+<div class="container" id="heading">
+    <span class="titles">Manuel's To-Go!</span><br />
+    <div class="borders"></div>
+</div><br />
+
+<!--shopping cart-->
+<div ng-show="showCart" class="container">
+    <ul class="collection">
+        <li class="collection-item" ng-repeat="order in cart track by $index">
+            {{order.amount}}  {{order.item.name}}   {{order.details}}   {{order.item.price | currency:"$"}}
+            <a href="" ng-click="removeModal($index)" class="secondary-content"><i class="material-icons">remove</i></a>
+        </li>
+    </ul>
+    <button ng-click="submitModal(cart)" class="white-text btn btn-flat red lighten-2">Submit Order</button>
+</div>
+
+<!--menu list-->
+<div class="container">
+    <ul class="collection">
+        <li class="collection-item avatar" ng-repeat="item in menu track by $index">
+            <img ng-src="{{item.image}}" alt="" class="circle"></img>
+                <span class="title">{{item.name}}</span>
+                <p>{{item.description}} &nbsp;&nbsp;{{item.price}}
+            </p>
+            <a href="" ng-click="addModal(item)" class="secondary-content modal-trigger col m3"><i class="material-icons">add</i></a>
+        </li>
+    </ul>
+</div>
+
+
+<!--Add Item Modal-->
+<div id="addModal" class="modal bottom-sheet">        
+    <div class="modal-content">
+        <h3 class="center-align">{{selectedItem.name}}</h3>
+        <h5 class="center-align">{{selectedItem.price | currency:"$"}}</h5>
+        <div class="center-align">
+            <form class="col s12">
+                <div class="row center-align">
+                    <div class="input-field col m10 offset-m1 light-green-text">
+                        <input placeholder="special considerations" type="text" ng-model="food.details">
+                    </div>
+                    <div class="input-field col m3 offset-m1 light-green-text">
+                        <input placeholder="amount" type="number" min="1" ng-model="food.amount">
+                        <p>Total = {{selectedItem.price * food.amount || 0 | currency:"$"}}</p>
+                    </div>
+                </div>
+            </form>
+            <p>
+                <a class="btn btn-flat white modal-close">Cancel</a> &nbsp;
+                <a ng-click="addToCart(selectedItem, food)"class="white-text red lighten-2 waves-effect waves-light btn btn-flat modal-action modal-close">Add to Cart</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!--Remove Item Modal-->
+<div id="removeModal" class="modal">        
+    <div class="modal-content">
+        <h3 class="center-align">Remove this item?</h3>
+        <div class="center-align">
+            <p>
+                <a class="btn btn-flat white modal-close">NO</a> &nbsp;
+                <a ng-click="removeItem($index)" class="white-text red lighten-2 btn btn-flat modal-action modal-close">YES</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!--Submit Order Modal-->
+<div id="submitModal" class="modal">        
+    <div class="modal-content">
+        <h3 class="center-align">Submit Order?</h3>
+        <div class="center-align">
+            <ul class="collection">
+                <li class="collection-item" ng-repeat="order in cart track by $index">
+                    {{order.amount}}  {{order.item.name}}   {{order.details}}   {{order.item.price | currency:"$"}}
+                </li>
+            </ul>
+            <p>
+                <a class="btn btn-flat white modal-close">NO</a> &nbsp;
+                <a ng-click='submitOrder(cart)' class="white-text red lighten-2 btn btn-flat modal-action modal-close">YES</a>
+            </p>
+        </div>
+    </div>
+</div>

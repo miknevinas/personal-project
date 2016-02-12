@@ -1,0 +1,111 @@
+html, body {
+    height: 100%;
+    /*background-color: #fff3e0*/
+    background-image: url("images/old_map.png")
+}
+
+
+@media (min-width:992px) {
+
+}
+
+@media (max-width:992px) {
+    .brand-logo {
+       font-size: 1rem;
+    }
+}
+
+#push.pin-top {
+    position:relative;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+section.pin-top {
+    position: fixed;
+    width: 100%;
+    z-index:99;
+}
+
+section.pinned {
+    display:none;
+    z-index:1;
+}
+
+#push.pinned {
+    position: static;
+    width: 100%;
+    display:none;
+}
+
+section {
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top:0;
+}
+
+#push {
+    position:relative;
+    height: 100%;
+}
+
+#main {
+    background-color:white;
+    position:relative;
+    z-index:990;
+}
+
+#heading {
+    font-family: 'Poiret One';
+    font-size: 3em;
+    text-align: center;
+}
+
+.titles {
+    font-size: .6em;
+}
+
+.borders {
+    border-bottom: 1px solid black;
+    width: 100%; 
+}
+
+.fa {
+    padding: 5px;
+    color: #fff3e0
+}
+
+#botanas, #soup, #entrees, #lunch, #brunch, #desserts, #drinks, #wines, #tequilas {
+    font-family: 'Josefin Sans';
+    text-align: center;
+}
+
+.card {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+#card {
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.divider {
+    background-color: #a0a0a0;
+}
+
+.first_name, .last_name, .email, .phone, .guests, .occasion, .date, .location, .special {
+    color: black;
+}
+
+.btn {
+    background-color: #EE6E73;
+}

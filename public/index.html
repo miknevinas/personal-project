@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="restaurantApp">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="manuels.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans|Poiret+One' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="materialize.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  <title>Manuel's</title>
+</head>
+
+    <body ng-controller="loginCtrl"> <!--ng-controller="socketIOController"-->
+        
+    <!--navbar-->
+    <div id="nav">
+        <div class="navbar-fixed">
+            <nav class="red darken-4">
+                <div class="nav-wrapper container">
+                    <a href="#" data-activates="mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a ui-sref="home">Home</a></li>
+                        <li><a ui-sref="menu">Menu</a></li>
+                        <li><a ui-sref="bar">Bar</a></li>
+                        <li><a ui-sref="events">Events</a></li>
+                        <li><a ui-sref="contact">Contact</a></li>
+                        <li><a ng-show="noUser" href="#modalLogin" class="modal-trigger">Order</a></li>
+                        <li><a ng-hide="noUser" ui-sref="order">Order</a></li>
+                        <li><a ng-hide="noUser" ng-click="logoutUser()">Logout</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile">
+                        <li><a ui-sref="home">Home</a></li>
+                        <li><a ui-sref="menu">Menu</a></li>
+                        <li><a ui-sref="bar">Bar</a></li>
+                        <li><a ui-sref="events">Events</a></li>
+                        <li><a ui-sref="contact">Contact</a></li>
+                        <li><a ng-show="noUser" href="#modalLogin" class="modal-trigger">Order</a></li>
+                        <li><a ng-hide="noUser" ui-sref="order">Order</a></li>
+                        <li><a ng-hide="noUser" ng-click="logoutUser()">Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    
+    <!--login modal-->
+    <div id="modalLogin" class="modal" >
+        <div class="modal-content">
+            <h2 class="center-align">Login</h2>
+            <div class="center-align">
+                <form class="col s12">
+                    <div class="row center-align">
+                        <div class="input-field col m10 offset-m1">
+                            <i class="mdi-action-account-circle prefix"></i>
+                            <input id="icon_prefix" type="text" class="validate" required ng-model="user.email">
+                            <label for="icon_prefix">Email</label>
+                        </div>
+                        <div class="input-field col m10 offset-m1">
+                            <i class="mdi-action-lock-open prefix"></i>
+                            <input id="icon_password" type="password" class="validate" required ng-model="user.password">
+                            <label for="icon_password">Password</label>
+                        </div>
+                        <div class="container">
+                        <p>
+                            <button ng-click = "loginUser(user)" class="white-text red lighten-2 btn btn-flat modal-action modal-close">Login</button>&nbsp;
+                            <a ui-sref="home" class="btn btn-flat white modal-close">Cancel</a>
+                        </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <br />
+            <div class="divider"></div>
+            <br />
+            <h2 class="center-align">Register</h2>
+            <div class="center-align">
+                <form class="col s12">
+                    <div class="row center-align">
+                        <div class="input-field col m10 offset-m1">
+                            <i class="mdi-action-account-circle prefix"></i>
+                            <input id="icon_prefix" type="text" class="validate" ng-model="user.email">
+                            <label for="icon_prefix">Email</label>
+                        </div>
+                        <div class="input-field col m10 offset-m1">
+                            <i class="mdi-action-lock-open prefix"></i>
+                            <input id="icon_password" type="password" class="validate" ng-model="user.password">
+                            <label for="icon_password">Password</label>
+                        </div>
+                        <div class="container">
+                            <p>
+                                <button ng-click = "loginUser(user)" class="white-text red lighten-2 btn btn-flat modal-action modal-close">Register</button>&nbsp;
+                                <a ui-sref="home" class="btn btn-flat white modal-close">Cancel</a>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!--views-->
+    <div class="view-container" ui-view></div>
+    
+    <!--Footer-->
+    <footer class="page-footer red darken-4">
+        <div class="footer-copyright">
+            <div class="container">
+                <div class='social left'>
+                    <a href="https://www.facebook.com/ManuelsATX"><i class="fa fa-facebook-official fa-2x"> </i></a>
+                    <a href="https://twitter.com/manuelsaustin"><i class="fa fa-twitter-square fa-2x"> </i></a>
+                    <a href="https://www.pinterest.com/manuelsaustin/"><i class="fa fa-pinterest fa-2x"> </i></a>
+                </div>
+                <a ng-hide="activeUser" class="grey-text text-lighten-4 right" ui-sref="admin">Admin</a>
+            </div>
+        </div>
+    </footer>
+        
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+    <!--Angular UI-Router-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+    <!--Materialize-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <!--Scripts-->
+    <script src="js/app.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/directives/homeDir.js"></script>
+    <script src="js/directives/menuDir.js"></script>
+    <script src="js/directives/barDir.js"></script>
+    <script src="js/directives/eventsDir.js"></script>
+    <script src="js/directives/contactDir.js"></script>
+    <script src="js/directives/orderDir.js"></script>
+    <script src="js/directives/adminDir.js"></script>
+    <script src="js/controllers/loginCtrl.js"></script>
+    <script src="js/services/loginSvc.js"></script>
+    <script src="js/services/orderSvc.js"></script>
+    <script src="js/services/cartSvc.js"></script>
+    <script src="js/services/eventSvc.js"></script>
+    <script src="js/services/adminSvc.js"></script>
+</body>
+</html>

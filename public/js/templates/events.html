@@ -1,0 +1,66 @@
+<div class="container" id="heading">
+    <span class="titles">Events</span><br />
+    <div class="borders"></div>
+</div><br />
+
+<div class="container" style="font-family: Josefin Sans">
+    Manuel’s provides full service catering and complimentary party planning for groups of 25 or more.<br />
+    So we may better assist you please answer a few questions below. Our Event Planner will respond to your inquiry within 2 business days.<br />
+    <br />
+    For parties less than 25, please call the restaurant and ask for the manager.<br />
+    <br />
+    Manuel’s Downtown: 512.472.7555  |  Manuel’s Great Hills: 512.345.1042  |  Changos: 512.480.TACO
+    
+    <br /><br />
+    <div class="divider"></div>
+    
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="first_name" type="text" class="validate" ng-model="firstName">
+                    <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="last_name" type="text" class="validate" ng-model="lastName">
+                    <label for="last_name">Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s4">
+                    <input id="email" type="email" class="validate" ng-model="email">
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="phone" type="tel" class="validate" ng-model="phone">
+                    <label for="phone">Phone Number</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="guests" type="number" class="validate" ng-model="guests">
+                    <label for="guests"># of Guests</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="occasion" type="text" class="validate" ng-model="occasion">
+                    <label for="occasion">Occasion/Company</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="date" type="date" class="validate" ng-model="date">
+                    <label for="date"></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="location" type="text" class="validate" ng-model="location">
+                    <label for="location">Which location?</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="special" type="text" class="validate" ng-model="instructions">
+                    <label for="special">Special Instructions</label>
+                </div>
+            </div>
+            <button class="white-text btn btn-flat red lighten-2" ng-click="submitEmail(firstName, lastName, email, phone, guests, occasion, date, location, instructions)">Submit</button>
+        </form>
+    </div>
+</div>

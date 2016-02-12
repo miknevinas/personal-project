@@ -1,0 +1,41 @@
+<div class="container" id="heading">
+    <span class="titles">Orders</span><br />
+    <div class="borders"></div>
+</div><br />
+
+<div class="container">
+    <button class="btn" ng-click="orderFulfilled(false)">UnFulfilled</button>
+    <button class="btn" ng-click="orderFulfilled(true)">Fulfilled</button>
+    <br /><br />
+    <div class="row" ng-repeat="order in orders | filter : filterObj">
+        <div class="col s12 m12">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">User : {{order.user.email}}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>Order Date : {{order.date | date:'MM/dd h:mma'}}</span><br />
+                    <table class="responsive-table">
+                        <thead>
+                            <tr>
+                                <th data-field="id">Amount</th>
+                                <th data-field="name">Item</th>
+                                <th data-field="price">Requests</th>
+                                <th data-field="price">Price</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr ng-repeat="item in order.items track by $index">
+                                <td>{{order.items[$index].amount}}</td>
+                                <td>{{order.items[$index].item.name}}</td>
+                                <td>{{order.items[$index].details}}</td>
+                                <td>{{order.items[$index].item.price * order.items[$index].amount || 0 | currency:"$"}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-action" ng-hide="hideAction">
+                    <a href="" ng-click="completeOrder(order._id)">Mark as Complete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
