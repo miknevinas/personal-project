@@ -28,7 +28,7 @@ var http = require('http').Server(app);
 
 //Middleware
 app.use(bodyParser.json());
-app.use(cors());
+//app.use(cors());
 app.use(session({
     secret: config.SESSION_SECRET,
     saveUninitialized: false,
@@ -68,7 +68,7 @@ app.get('/logout', function(req, res, next) {
 });
 
 //Connections
-var mongoUri = "mongodb://localhost:27017/manuels";
+/*var mongoUri = "mongodb://localhost:27017/manuels";
 var port = 3007;
 mongoose.set('debug',true);
 mongoose.connect(mongoUri);
@@ -77,12 +77,11 @@ mongoose.connection.once('open', function(){
 });
 app.listen(port, function(){
     console.log('listening on port ' + port);
-});
+});*/
 
 //Server and DB Init
-/*
-var port = 3007;
-var mongoUri = 'mongodb://miknevinas:miknevinas@ds061415.mongolab.com:61415/personal-project';
+var port = process.env.PORT || 3007;
+var mongoUri = process.env.MONGO_URI;
 
 mongoose.set('debug', true);
 mongoose.connect(mongoUri);
@@ -94,4 +93,3 @@ mongoose.connection
         console.log('Listening on port ' + port);
     });
 });
-*/
