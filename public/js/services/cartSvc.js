@@ -3,6 +3,9 @@ angular.module('restaurantApp').service('cartSvc', function($http) {
     var localStorageKey = 'meh123';
     var cartsArray = [];
     this.addToCart = function(item) { 
+        if(!cartsArray) {
+            cartsArray = [];
+        }
         cartsArray.push(item);
         localStorage.setItem(localStorageKey, JSON.stringify(cartsArray));
     }
