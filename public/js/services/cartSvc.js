@@ -8,6 +8,9 @@ angular.module('restaurantApp').service('cartSvc', function($http) {
     }
     
     this.getCart = function() {
+        if(!cartsArray) {
+            cartsArray = [];
+        }
         if (cartsArray.length === 0) { 
             var data = localStorage.getItem(localStorageKey);
             cartsArray = JSON.parse(data);
