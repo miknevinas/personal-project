@@ -8,8 +8,8 @@ angular.module('restaurantApp').controller('loginCtrl', function($scope, loginSv
         }
     })
    
-    $scope.createNewUser = function(user) {
-        loginSvc.register(user).then(function(response){
+    $scope.createNewUser = function(newUser) {
+        loginSvc.register(newUser).then(function(response){
             $state.go('order');
             $scope.noUser = false;
             Materialize.toast('Welcome to Manuels!', 3000);

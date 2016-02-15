@@ -6,10 +6,9 @@ var cors = require('cors');
 var session = require('express-session');
 var passport = require('passport');
 
-
 //Config
 var config = require('./config')
-var port = 3006;
+//var port = 3006;
 
 //Controllers
 var menuCtrl = require('./controllers/menuCtrl');
@@ -26,7 +25,6 @@ var isAuthed = function(req, res, next) {
 var app = express();
 
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
 
 //Middleware
 app.use(bodyParser.json());
@@ -70,7 +68,8 @@ app.get('/logout', function(req, res, next) {
 });
 
 //Connections
-var mongoUri = "mongodb://localhost:27017/manuels"
+var mongoUri = "mongodb://localhost:27017/manuels";
+var port = 3007;
 mongoose.set('debug',true);
 mongoose.connect(mongoUri);
 mongoose.connection.once('open', function(){
@@ -79,3 +78,20 @@ mongoose.connection.once('open', function(){
 app.listen(port, function(){
     console.log('listening on port ' + port);
 });
+
+//Server and DB Init
+/*
+var port = 3007;
+var mongoUri = 'mongodb://miknevinas:miknevinas@ds061415.mongolab.com:61415/personal-project';
+
+mongoose.set('debug', true);
+mongoose.connect(mongoUri);
+mongoose.connection
+    .on('error', console.error.bind(console, 'Connection Error: '))
+    .once('open', function() {
+    console.log('Connected to MongoDB at', mongoUri.slice(mongoUri.indexOf('@')+1, mongoUri.length));
+    app.listen(port, function() {
+        console.log('Listening on port ' + port);
+    });
+});
+*/

@@ -81,17 +81,17 @@
                     <div class="row center-align">
                         <div class="input-field col m10 offset-m1">
                             <i class="mdi-action-account-circle prefix"></i>
-                            <input id="icon_prefix" type="text" class="validate" ng-model="user.email">
+                            <input id="icon_prefix" type="text" class="validate" ng-model="newUser.email">
                             <label for="icon_prefix">Email</label>
                         </div>
                         <div class="input-field col m10 offset-m1">
                             <i class="mdi-action-lock-open prefix"></i>
-                            <input id="icon_password" type="password" class="validate" ng-model="user.password">
+                            <input id="icon_password" type="password" class="validate" ng-model="newUser.password">
                             <label for="icon_password">Password</label>
                         </div>
                         <div class="container">
                             <p>
-                                <button ng-click = "loginUser(user)" class="white-text red lighten-2 btn btn-flat modal-action modal-close">Register</button>&nbsp;
+                                <button ng-click = "createNewUser(newUser)" class="white-text red lighten-2 btn btn-flat modal-action modal-close">Register</button>&nbsp;
                                 <a ui-sref="home" class="btn btn-flat white modal-close">Cancel</a>
                             </p>
                         </div>
