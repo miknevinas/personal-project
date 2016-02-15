@@ -44,6 +44,9 @@ angular.module('restaurantApp').directive('orderDir', function(){
             
             var loadCart = function() {
                 $scope.cart = cartSvc.getCart();
+                if(!$scope.cart) {
+                    $scope.cart = [];
+                }
                 if ($scope.cart.length === 0) {
                     $scope.showCart = false;
                 } else {
