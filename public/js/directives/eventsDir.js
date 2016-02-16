@@ -1,5 +1,5 @@
 angular.module('restaurantApp').directive('eventsDir', function(){
-
+//
     return {
         templateUrl: 'js/templates/events.html',
         restrict: 'E',
