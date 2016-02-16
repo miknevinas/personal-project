@@ -17,7 +17,7 @@ angular.module('restaurantApp').service('eventSvc', function($http){
                     ],
                     'autotext':'true',
                     'subject': 'Event inquiry from:' + firstName + ' ' + lastName,
-                    'text': email, phone, guests, occasion, date, location, instructions 
+                    'text': email + phone + guests + occasion + date + location + instructions 
                 }
             }
         })
