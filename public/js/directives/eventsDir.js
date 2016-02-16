@@ -11,7 +11,7 @@ angular.module('restaurantApp').directive('eventsDir', function(){
                 }
 
                 else if (firstName && lastName && email && phone && guests && occasion && date && location && instructions) {
-                    alert("Your message has been sent.")
+                    Materialize.toast('Your message has been sent!', 3000);
                     eventSvc.submitEmail(firstName, lastName, email, phone, guests, occasion, date, location, instructions);
                     $scope.firstName = '';
                     $scope.lastName = '';
