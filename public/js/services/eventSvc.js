@@ -6,12 +6,12 @@ angular.module('restaurantApp').service('eventSvc', function($http){
             method: 'post',
             url: 'https://mandrillapp.com/api/1.0/messages/send.json',
             data: {
-                'key': "Ox36XW_qxI8qjR4Dbr522w",//‘YOUR API KEY HERE’
+                'key': "Ox36XW_qxI8qjR4Dbr522w",
                 'message': {
                     'from_email': 'me@adammcnevin.com',
                     'to': [
                         {
-                            'email': 'miknevinas@gmail.com', //‘RECIPIENT_NO_1@EMAIL.HERE’
+                            'email': 'miknevinas@gmail.com', 
                             'type': 'to'
                         }
                     ],
