@@ -68,16 +68,16 @@ app.get('/logout', function(req, res, next) {
 });
 
 //Connections
-/*var mongoUri = "mongodb://localhost:27017/manuels";
-var port = 3007;
-mongoose.set('debug',true);
-mongoose.connect(mongoUri);
-mongoose.connection.once('open', function(){
-    console.log("Successfully connected to mongodb");
-});
-app.listen(port, function(){
-    console.log('listening on port ' + port);
-});*/
+//var mongoUri = "mongodb://localhost:27017/manuels";
+//var port = 3007;
+//mongoose.set('debug',true);
+//mongoose.connect(mongoUri);
+//mongoose.connection.once('open', function(){
+//    console.log("Successfully connected to mongodb");
+//});
+//app.listen(port, function(){
+//    console.log('listening on port ' + port);
+//});
 
 //Server and DB Init
 var port = process.env.PORT || 3007;
