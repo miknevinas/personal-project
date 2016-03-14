@@ -20,4 +20,4 @@ Feel free to fork and submit a pull request if you wish. I'm always open to feed
 
 ## License
 
-MIT?
+None
