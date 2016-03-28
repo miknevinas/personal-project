@@ -7,7 +7,7 @@ This is a website built to demonstrate working knowledge of the MEAN stack. The 
 
 ## Usage
 
-This app is solely for demonstration of skills.  The live version can be found [here] (https://manuels.herokuapp.com/#/).
+This app is solely for demonstration of skills.  The live version can be found [here] (http://manuels.herokuapp.com/#/).
 
 ## Built With
 
